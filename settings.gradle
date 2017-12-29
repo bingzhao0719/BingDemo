@@ -1,1 +1,1 @@
-include ':app', ':NoDieApp'
+include ':app'
