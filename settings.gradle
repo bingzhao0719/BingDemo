@@ -1,1 +1,1 @@
-include ':app', ':PageStatus', ':bottom-tab'
+include ':app', ':PageStatus', ':bottom-tab', ':base-recycler-adpater', ':refresh-layout'
