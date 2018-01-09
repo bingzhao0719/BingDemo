@@ -5,6 +5,9 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.bing.demo.bingdemo.test.Message;
 import com.bing.demo.bingdemo.test.MyAdapter;
@@ -21,7 +24,21 @@ public class MainActivity extends PageStatusActivity {
         super.onCreate(savedInstanceState);
         mStatusManager.showLoading();
 
-        initView();
+//        initView();
+
+        findViewById(R.id.myview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("wubingzhao", "MainActivity onClick: ");
+            }
+        });
+        findViewById(R.id.myview).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.e("wubingzhao", "MainActivity onTouch: ");
+                return false;
+            }
+        });
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -30,11 +47,53 @@ public class MainActivity extends PageStatusActivity {
             }
         },2000);
     }
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        String str = "ACTION_DOWN";
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                str = "ACTION_DOWN";
+                break;
+            case MotionEvent.ACTION_MOVE:
+                str = "ACTION_MOVE";
+                break;
+            case MotionEvent.ACTION_UP:
+                str = "ACTION_UP";
+                break;
+            default:
+                break;
 
-//    @Override
-//    protected int initContentView() {
-//        return R.layout.activity_main;
-//    }
+        }
+        Log.e("wubingzhao", "MainActivity dispatchTouchEvent:"+str);
+        return super.dispatchTouchEvent(ev);
+//        return true;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        String str = "ACTION_DOWN";
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                str = "ACTION_DOWN";
+                break;
+            case MotionEvent.ACTION_MOVE:
+                str = "ACTION_MOVE";
+                break;
+            case MotionEvent.ACTION_UP:
+                str = "ACTION_UP";
+                break;
+            default:
+                break;
+
+        }
+        Log.e("wubingzhao", "MainActivity onTouchEvent:"+str);
+        return super.onTouchEvent(ev);
+    }
+
+    @Override
+    protected int initContentView() {
+        return R.layout.activity_main;
+    }
 
     private void initView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
