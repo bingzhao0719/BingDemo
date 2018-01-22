@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bing.demo.bingdemo.custom.MyLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.bing.demo.bingdemo.custom.MyView
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@color/colorAccent"
+        android:text="@string/app_name"/>
+    <!--<com.bing.demo.bingdemo.conflict.HScrollView-->
+        <!--android:id="@+id/container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/colorAccent">-->
+
+    <!--</com.bing.demo.bingdemo.conflict.HScrollView>-->
+
+</com.bing.demo.bingdemo.custom.MyLayout>

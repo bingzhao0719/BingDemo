@@ -5,13 +5,13 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by wubz on 2018/1/3.
  */
 
-public class MyView extends View {
+public class MyView extends TextView {
     public MyView(Context context) {
         super(context);
     }
@@ -63,5 +63,37 @@ public class MyView extends View {
         Log.i("wubingzhao", "MyView onTouchEvent:"+str);
         return super.onTouchEvent(ev);
 //        return false;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+        Log.d("wubingzhao", "myview onMeasure before: ");
+
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.d("wubingzhao", "myview onMeasure after: ");
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.e("wubingzhao", "myview onAttachedToWindow: "+getWidth());
+    }
+
+    @Override
+    protected void onWindowVisibilityChanged(int visibility) {
+        super.onWindowVisibilityChanged(visibility);
+        Log.e("wubingzhao", "myview onWindowVisibilityChanged visibility: "+visibility+" :"+getWidth());
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Log.e("wubingzhao", "myview onDetachedFromWindow: ");
     }
 }

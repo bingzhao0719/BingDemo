@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.FrameLayout;
 
 /**
@@ -91,4 +92,22 @@ public class MyLayout extends FrameLayout {
 //        return true;
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.d("wubingzhao", "MyLayout onMeasure before: " + getSize(heightMeasureSpec));
+
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.d("wubingzhao", "MyLayout onMeasure after: " + getSize(heightMeasureSpec));
+    }
+    private static final int MODE_MASK  = 0x3 << 30;
+    public static int getSize(int measureSpec) {
+        return (measureSpec & ~MODE_MASK);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        View view = getChildAt(0);
+        super.onLayout(changed, left+50, top+100, right, bottom);
+        view.layout(left+50, top+100, left+500, top+500);
+    }
 }
