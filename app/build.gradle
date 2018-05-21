@@ -30,4 +30,5 @@ dependencies {
     compile project(':bottom-tab')
     compile project(':base-recycler-adapter')
     compile project(':refresh-layout')
+    compile project(':base')
 }

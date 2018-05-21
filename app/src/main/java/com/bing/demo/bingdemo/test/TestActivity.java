@@ -13,6 +13,7 @@ public class TestActivity extends AppCompatActivity {
 
     private VideoView mVideoView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,6 @@ public class TestActivity extends AppCompatActivity {
         Uri uri = new Uri.Builder()
                 .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
                 .authority(getPackageName())
-                .path(Integer.toString(R.raw.trailer))
                 .build();
         mVideoView.setVideoURI(uri);
 
